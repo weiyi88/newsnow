@@ -1,4 +1,5 @@
 import type { MaybePromise } from "@shared/type.util"
+import { $fetch } from "ofetch"
 
 export function safeParseString(str: any) {
   try {
@@ -35,3 +36,8 @@ export class Timer {
     clearTimeout(this.timerId)
   }
 }
+
+export const myFetch = $fetch.create({
+  timeout: 10000,
+  retry: 0,
+})
